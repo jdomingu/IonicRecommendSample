@@ -13,7 +13,12 @@ angular.module('hopulous', ['ionic'])
   });
 })
 
-.controller('RecBeerCtrl', function($scope) {
+.controller('RecBeerCtrl', function($scope, $http) {
+    $http.get('tmp/beer_history.json').success(function(data) {
+        $scope.recbeers = data.splice(0, 100); // Limit beers loaded for now. Remove splice later.
+    });
+});
+/*
   $scope.recbeers = [
     { name: 'Cowiche Canyon',
         brewery: 'Fremont Brewing' },
@@ -23,4 +28,4 @@ angular.module('hopulous', ['ionic'])
         brewery: 'Boneyard Brewing' },
   ];
 });
-
+*/
