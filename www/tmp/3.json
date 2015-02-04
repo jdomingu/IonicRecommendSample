@@ -1,0 +1,14 @@
+{
+"beer_id":3,
+"beer_name":"Coors Light",
+"brewery_name":"Coors Brewing Company",
+"beer_type":"American Light Lager",
+"beer_abv":4.2,
+"beer_ibu":0,
+"venue_city":"Seattle",
+"venue_state":"WA",
+"venue_lat":47.6142,
+"venue_lng":-122.322,
+"rating_score":3,
+"brewery_country":"United States"
+}

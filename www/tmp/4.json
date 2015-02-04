@@ -1,0 +1,16 @@
+{
+"beer_id":4,
+"beer_name":"BeakTweaker Citrus IPA",
+"brewery_name":"Black Raven Brewing Company",
+"beer_type":"American IPA",
+"beer_abv":6.5,
+"beer_ibu":77,
+"comment":"",
+"venue_name":"",
+"venue_city":"",
+"venue_state":"",
+"venue_lat":null,
+"venue_lng":null,
+"rating_score":4.5,
+"brewery_country":"United States"
+}

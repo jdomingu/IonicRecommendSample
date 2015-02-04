@@ -1,0 +1,15 @@
+{
+"beer_id":2,
+"beer_name":"Space Dust IPA",
+"brewery_name":"Elysian Brewing",
+"beer_type":"American IPA",
+"beer_abv":7.2,
+"beer_ibu":62,
+"venue_city":"Seattle",
+"venue_state":"WA",
+"venue_lat":47.614,
+"venue_lng":-122.319,
+"rating_score":4.5,
+"brewery_country":"United States"
+}
+

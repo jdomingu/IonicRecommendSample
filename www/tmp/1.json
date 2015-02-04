@@ -1,0 +1,14 @@
+{
+"beer_id":1,
+"beer_name":"Cowiche Canyon Fresh Hop Ale",
+"brewery_name":"Fremont Brewing",
+"beer_type":"American IPA",
+"beer_abv":6,
+"beer_ibu":70,
+"venue_city":"Seattle",
+"venue_state":"WA",
+"venue_lat":47.6493,
+"venue_lng":-122.346,
+"rating_score":4.5,
+"brewery_country":"United States"
+}

@@ -1,0 +1,16 @@
+{
+"beer_id":6,
+"beer_name":"77 Fremont Select",
+"brewery_name":"Fremont Brewing",
+"beer_type":"American IPA",
+"beer_abv":4,
+"beer_ibu":0,
+"comment":"",
+"venue_name":"",
+"venue_city":"",
+"venue_state":"",
+"venue_lat":null,
+"venue_lng":null,
+"rating_score":4,
+"brewery_country":"United States"
+}

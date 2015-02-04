@@ -1,0 +1,16 @@
+{
+"beer_id":5,
+"beer_name":"Total Domination IPA",
+"brewery_name":"Ninkasi Brewing Company",
+"beer_type":"American IPA",
+"beer_abv":6.7,
+"beer_ibu":65,
+"comment":"",
+"venue_name":"",
+"venue_city":"",
+"venue_state":"",
+"venue_lat":null,
+"venue_lng":null,
+"rating_score":4,
+"brewery_country":"United States"
+}

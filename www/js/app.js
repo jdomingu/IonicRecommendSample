@@ -1,4 +1,4 @@
-angular.module('hopulous', ['ionic'])
+angular.module('hopulous', ['ionic', 'hopulous.controllers'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -8,28 +8,6 @@ angular.module('hopulous', ['ionic'])
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         }
         if(window.StatusBar) {
-            StatusBar.styleDefault();
-        }
-    });
-})
-
-.controller('RecBeerCtrl', function($scope, $http) {
-    $http.get('tmp/beer_history.json').success(function(data) {
-        $scope.recbeers = data.splice(0, 100); // Limit beers loaded for now. Remove splice later.
-    });
-});
-
-angular.module('hopulous', ['ionic', 'hopulous.controllers'])
-
-.run(function($ionicPlatform) {
-    $ionicPlatform.ready(function() {
-        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-        // for form inputs)
-        if (window.cordova && window.cordova.plugins.Keyboard) {
-            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-        }
-        if (window.StatusBar) {
-            // org.apache.cordova.statusbar required
             StatusBar.styleDefault();
         }
     });
@@ -54,7 +32,15 @@ angular.module('hopulous', ['ionic', 'hopulous.controllers'])
 		}
 	})
 	
-
+    .state('app.beer-profile', {
+		url: "/recommended/:beerId",
+		views: {
+		  'menuContent': {
+			templateUrl: "templates/beer-profile.html",
+			controller: 'BeerProfileCtrl'
+		  }
+		}
+  });
 
 // if none of the above states are matched, use this as the fallback
 $urlRouterProvider.otherwise('/app/recommended');
