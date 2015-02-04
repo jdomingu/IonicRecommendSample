@@ -1,0 +1,17 @@
+<ion-view>
+    <ion-content>
+	<div class="list list-inset">
+	  <label class="item item-input">
+		<i class="icon ion-search placeholder-icon"></i>
+		<input type="text" placeholder="Search" ng-model="beerSearch">
+	  </label>
+	</div>
+    <ion-list>
+      <ion-item href="#/beers/{{recbeer.beer_id}}" ng-repeat="recbeer in recbeers | filter:beerSearch">
+           {{recbeer.beer_name}}
+          <ion-option-button class="button-clear button-positive">Check in</ion-option-button>
+          <ion-option-button class="button-clear button-positive">Cancel</ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

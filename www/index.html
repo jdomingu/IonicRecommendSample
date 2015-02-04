@@ -20,41 +20,10 @@
 
         <!-- your app's js -->
         <script src="js/app.js"></script>
+        <script src="js/controllers.js"></script>
     </head>
   
     <body ng-app="hopulous" ng-controller="RecBeerCtrl">
-        <ion-side-menus>
-            <ion-side-menu-content>
-                <ion-header-bar class="bar-balanced">
-                    <h1 class="title">Hopulous</h1>
-                </ion-header-bar>
-
-                <ion-content>
-                    <div class="list list-inset">
-                      <label class="item item-input">
-                        <i class="icon ion-search placeholder-icon"></i>
-                        <input type="text" placeholder="Search" ng-model="beerSearch">
-                      </label>
-                    </div>
-
-                    <ion-list>
-                      <ion-item href="#/beers/{{recbeer.beer_id}}" ng-repeat="recbeer in recbeers | filter:beerSearch">
-                           {{recbeer.beer_name}}
-                          <ion-option-button class="button-clear button-positive">Check in</ion-option-button>
-                          <ion-option-button class="button-clear button-positive">Cancel</ion-option-button>
-                      </ion-item>
-                    </ion-list>
-                </ion-content>
-
-            </ion-side-menu-content>
-
-            <!-- Left menu -->
-            <ion-side-menu side="left">
-                <ion-header-bar class="bar-balanced">
-                <h1 class="title">Projects</h1>
-                </ion-header-bar>
-            </ion-side-menu>
-
-        </ion-side-menus>
+        <ion-nav-view></ion-nav-view>
     </body>
 </html>
