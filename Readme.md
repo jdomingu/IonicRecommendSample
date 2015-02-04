@@ -5,6 +5,7 @@
 - Run `sudo npm install -g cordova ionic`
 - Install the Android or iOS SDK. 
 - Run `ionic platform add android`
+- Run `cordova plugin add org.apache.cordova.camera`
 
 ## Commands to Remember
 

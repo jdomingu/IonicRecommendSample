@@ -10,6 +10,7 @@ angular.module('hopulous', ['ionic', 'hopulous.controllers'])
         if(window.StatusBar) {
             StatusBar.styleDefault();
         }
+        
     });
 })
 
