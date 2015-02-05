@@ -19,8 +19,8 @@ angular.module('hopulous', ['ionic', 'hopulous.controllers'])
 
     .state('app', {
         url: "/app",
-    abstract: true,
-    templateUrl: "templates/menu.html",
+        abstract: true,
+        templateUrl: "templates/menu.html",
     })
 
 	.state('app.recommended', {
@@ -41,7 +41,7 @@ angular.module('hopulous', ['ionic', 'hopulous.controllers'])
 			controller: 'BeerProfileCtrl'
 		  }
 		}
-  });
+    });
 
 // if none of the above states are matched, use this as the fallback
 $urlRouterProvider.otherwise('/app/recommended');
