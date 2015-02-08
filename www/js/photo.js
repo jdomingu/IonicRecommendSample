@@ -58,6 +58,10 @@ function getPhoto(source) {
 // Failure message 
 //
 function onFail(message) {
-    alert('Could not add photo: ' + message);
+    if (message == 'Camera cancelled.' || message == 'Selection cancelled.') {
+        console.log('Could not add photo: ' + message);
+    } else {
+        alert('Could not add photo: ' + message);
+    }
 }
 
