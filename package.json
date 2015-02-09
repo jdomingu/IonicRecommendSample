@@ -18,7 +18,12 @@
     "karma-jasmine": "^0.3.5",
     "shelljs": "^0.3.0"
   },
-  "cordovaPlugins": [
-    "org.apache.cordova.camera"
-  ]
+ "cordovaPlugins": [
+      "org.apache.cordova.camera"
+  ],
+  "scripts": {
+      "postinstall":"bower install",
+      "start": "ionic serve",
+      "test": "node node_modules/karma/bin/karma start test/karma.conf.js"
+  } 
 }
