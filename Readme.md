@@ -1,30 +1,23 @@
 ## Installation Instructions
+Hopulous uses the node package manager to install dependencies. You can view dependencies in the package.json file. The file also maps terminal commands to npm install, start, and test.
 
-- Install node
-- Install npm
-- Run `npm install cordova ionic`
-- Install the Android or iOS SDK. 
-- Run `npm install` to download dependencies.
-- Run `ionic platform add android`
-- Run `cordova plugin add org.apache.cordova.camera`
+- Install node and npm
+- Run `npm install`
 
 ## Notable Commands
 
-Run the app from a test http server at localhost:8100.
+Run the app from a test http server:
 
 `npm start`
 
-Run unit tests.
+Run unit tests:
 
 `npm test`
 
-Run the app in an emulator.
+Run the app in an emulator:
 
 `ionic emulate android`
 
-Run the app on a connected Android device.
+Run the app on a connected Android device:
 
 `ionic run android`
-
-
-*Note that the npm commands have been mapped in package.json.

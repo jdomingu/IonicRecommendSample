@@ -4,6 +4,7 @@
   "private": true,
   "description": "Hopulous: An Ionic project",
   "dependencies": {
+    "cordova": "^4.2.0",
     "gulp": "^3.5.6",
     "gulp-sass": "^0.7.1",
     "gulp-concat": "^2.2.0",
@@ -18,12 +19,12 @@
     "karma-jasmine": "^0.3.5",
     "shelljs": "^0.3.0"
   },
- "cordovaPlugins": [
-      "org.apache.cordova.camera"
+  "cordovaPlugins": [
+    "org.apache.cordova.camera"
   ],
   "scripts": {
-      "postinstall":"bower install",
-      "start": "ionic serve",
-      "test": "node node_modules/karma/bin/karma start test/karma.conf.js"
-  } 
+    "postinstall": "bower install && ionic platform add android && cordova plugin add org.apache.cordova.camera",
+    "start": "ionic serve",
+    "test": "node node_modules/karma/bin/karma start test/karma.conf.js"
+  }
 }
