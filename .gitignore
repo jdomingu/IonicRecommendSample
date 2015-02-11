@@ -4,6 +4,7 @@
 node_modules/
 platforms/
 plugins/
+*.log
 resources/*
 !resources/icon.png
 !resources/splash.png
