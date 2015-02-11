@@ -23,7 +23,7 @@
     "org.apache.cordova.camera"
   ],
   "scripts": {
-    "postinstall": "bower install && ionic platform add android && cordova plugin add org.apache.cordova.camera",
+    "postinstall": "bower install && ionic platform add android && node node_modules/cordova/bin/cordova plugin add org.apache.cordova.camera",
     "start": "ionic serve",
     "test": "node node_modules/karma/bin/karma start test/karma.conf.js"
   }

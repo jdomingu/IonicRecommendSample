@@ -20,7 +20,7 @@ module.exports = function(config) {
       'www/lib/angular-animate/angular-animate.js',
       'www/lib/angular-mocks/angular-mocks.js',
       'www/lib/angular-sanitize/angular-sanitize.js',
-      'www/lib/angular-ui-router/angular-ui-router.js',
+      'www/lib/angular-ui-router/release/angular-ui-router.js',
       'www/js/*.js',
       'test/unit/*.js'
     ],
