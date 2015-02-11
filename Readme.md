@@ -6,18 +6,10 @@ Hopulous uses the node package manager to install dependencies. You can view dep
 
 ## Notable Commands
 
-Run the app from a test http server:
+Run the app from a connected Android device or emulator:
 
 `npm start`
 
 Run unit tests:
 
 `npm test`
-
-Run the app in an emulator:
-
-`ionic emulate android`
-
-Run the app on a connected Android device:
-
-`ionic run android`
