@@ -39,6 +39,16 @@ angular.module('hopulous', ['ionic', 'hopulous.controllers'])
 		}
 	})
 	
+	.state('app.nearby', {
+		url: "/nearby",
+		views: {
+			'menuContent': {
+				templateUrl: "templates/nearby.html",
+				controller: 'NearbyCtrl'
+			}
+		}
+	})
+
     .state('app.beer-profile', {
 		url: "/recommended/:beerId",
 		views: {

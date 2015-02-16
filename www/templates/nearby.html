@@ -1,0 +1,15 @@
+<ion-view>
+    <ion-content>
+    <div class='list'>
+      <a href="#/app/nearby/{{venue.name}}" class="item item-avatar" ng-repeat="venue in venues">
+            <img src="{{venue.categories[0].icon.prefix}}bg_32{{venue.categories[0].icon.suffix}}">
+            <h2>{{venue.name}}</h2>
+            <p>
+                {{venue.categories[0].name}}
+                {{venue.location.address}}
+            </p>
+        </a>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>
