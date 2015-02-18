@@ -16,6 +16,7 @@ angular.module('hopulous', ['ionic', 'hopulous.controllers'])
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
 
+        navigator.geolocation.getCurrentPosition(onGpsSuccess, onGpsFail);
         
     });
 })
@@ -39,12 +40,12 @@ angular.module('hopulous', ['ionic', 'hopulous.controllers'])
 		}
 	})
 	
-	.state('app.nearby', {
-		url: "/nearby",
+	.state('app.places', {
+		url: "/places",
 		views: {
 			'menuContent': {
-				templateUrl: "templates/nearby.html",
-				controller: 'NearbyCtrl'
+				templateUrl: "templates/places.html",
+				controller: 'PlacesCtrl'
 			}
 		}
 	})

@@ -21,10 +21,11 @@
     "shelljs": "^0.3.0"
   },
   "cordovaPlugins": [
-    "org.apache.cordova.camera"
+    "org.apache.cordova.camera",
+    "org.apache.cordova.geolocation"
   ],
   "scripts": {
-    "postinstall": "bower install && node node_modules/ionic/bin/ionic platform add android && node node_modules/cordova/bin/cordova plugin add org.apache.cordova.camera",
+    "postinstall": "bower install && node node_modules/ionic/bin/ionic platform add android && node node_modules/cordova/bin/cordova plugin add org.apache.cordova.camera && cordova plugin add org.apache.cordova.geolocation",
     "prestart": "node node_modules/ionic/bin/ionic resources --icon",
     "start": "node node_modules/ionic/bin/ionic run android",
     "test": "node node_modules/karma/bin/karma start test/karma.conf.js"
