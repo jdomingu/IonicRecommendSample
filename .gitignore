@@ -5,6 +5,7 @@ node_modules/
 platforms/
 plugins/
 *.log
+*.swp
 resources/*
 !resources/icon.png
 !resources/splash.png
