@@ -1,6 +1,6 @@
-angular.module('hopulous', ['ionic', 'hopulous.controllers'])
+var hopulous = angular.module('hopulous', ['ionic', 'controllers', 'services']);
 
-.run(function($ionicPlatform) {
+hopulous.run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -16,12 +16,11 @@ angular.module('hopulous', ['ionic', 'hopulous.controllers'])
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
 
-        navigator.geolocation.getCurrentPosition(onGpsSuccess, onGpsFail);
         
     });
-})
+});
 
-.config(function($stateProvider, $urlRouterProvider) {
+hopulous.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
 
     .state('app', {

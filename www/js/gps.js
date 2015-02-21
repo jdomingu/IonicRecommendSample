@@ -2,7 +2,8 @@
 //
 
 function onGpsSuccess(position) {
-    alert('GPS Coordinates: ' + position.coords.latitude + ', ' + position.coords.longitude);
+    return '47,-121';
+//    return position.coords.latitude + ', ' + position.coords.longitude;
 }
 
 function onGpsFail(message) {
