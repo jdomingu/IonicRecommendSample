@@ -44,9 +44,14 @@ hopulous.config(function($stateProvider, $urlRouterProvider) {
 		views: {
 			'menuContent': {
 				templateUrl: "templates/places.html",
-				controller: 'PlacesCtrl'
-			}
-		}
+				controller: 'PlacesCtrl',
+            },
+        }, 
+        resolve: {
+            currentLocation: function(locationService) {
+                return locationService.getLocation();
+            }
+        }
 	})
 
     .state('app.beer-profile', {

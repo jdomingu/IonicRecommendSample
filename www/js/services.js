@@ -1,7 +1,6 @@
 var services = angular.module('services', []);
 
 services.factory('locationService', function($q) {
-    var defer = $q.defer;
 
     return {
         isLocationEnabled: function () {
@@ -13,36 +12,23 @@ services.factory('locationService', function($q) {
             }
         },
         getLocation: function () {
+
             if (!this.isLocationEnabled()) {
+                console.log('Location services are off.');
                 return;
             } else {
-                navigator.geolocation.getCurrentPosition(this.locationSuccess, this.locationError);
-                return defer.promise;
-                    // var defer = $q.defer();
+                var deferred = $q.defer();
+                var geoOptions = {timeout:6000, enableHighAccuracy: true}; 
 
-                    // defer.promise
-                    //     .then(function (gpsCoords) {
-                    //         alert(gpsCoords);
-                    //     });
-
-                    // var gpsCoords = navigator.geolocation.getCurrentPosition(onGpsSuccess, onGpsFail);
-                    // $timeout(function (gpsCoords) {
-                    //     alert(gpsCoords);
-                    //     defer.resolve(gpsCoords);
-                    // }, 8000);
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    deferred.resolve({latlon: position.coords.latitude + ', ' + position.coords.longitude});
+                }, function (error) {
+                    console.log('Error: ' + error);
+                    deferred.reject(error);
+                });
+                
+                return deferred.promise;
             }
-        },
-
-        locationSuccess: function (position) {
-            alert(position.coords.latitude + ', ' + position.coords.longitude);
-            defer.resolve(position.coords.latitude + ', ' + position.coords.longitude);
-        },
-
-        locationError: function (error) {
-            alert('code: '    + error.code    + '\n' +
-                'message: ' + error.message + '\n');
-            defer.reject('Error');
         }
-
     };
 });

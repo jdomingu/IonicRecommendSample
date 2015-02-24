@@ -3,7 +3,6 @@
         Places
     </ion-nav-title>
     <ion-content>
-    <span><h2>{{position}}</h2></span>
     <div class='list'>
       <a href='#/app/places/{{venue.name}}' class='item item-avatar' ng-repeat='venue in venues'>
             <img src='{{venue.categories[0].icon.prefix}}bg_32{{venue.categories[0].icon.suffix}}'>
@@ -13,7 +12,6 @@
                 {{venue.location.address}}
             </p>
         </a>
-      </div>
-    </ion-list>
+    </div>
   </ion-content>
 </ion-view>
