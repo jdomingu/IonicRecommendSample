@@ -1,10 +1,10 @@
 var services = angular.module('services', []);
 
-services.factory('locationService', function($q) {
-
+services.factory('locationService', function($q, $state) {
     return {
         isLocationEnabled: function () {
             if (!navigator.geolocation) {
+                $state.go('app.places.locationError');
                 return false;
             } else {
                 return true;
@@ -22,8 +22,8 @@ services.factory('locationService', function($q) {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     deferred.resolve({latlon: position.coords.latitude + ', ' + position.coords.longitude});
                 }, function (error) {
-                    console.log('Error ' + error.code + ': ' + error.message);
-                    alert('Could not get your location. Ensure that location services are turned on.');
+                    // If this returns an error, display the locationError view.
+                    $state.go('app.places.locationError');
                     deferred.reject(error);
                 }, geoOptions);
                 
@@ -33,3 +33,15 @@ services.factory('locationService', function($q) {
     };
 });
 
+services.factory('networkService', function () {
+    return {
+        isNetworkEnabled: function () {
+            if (navigator.network.connection.type == Connection.NONE){
+                console.log("Could not access the network.");
+                return false;
+            } else {
+                return true;
+            }
+        }
+    };
+});

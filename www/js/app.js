@@ -41,6 +41,7 @@ hopulous.config(function($stateProvider, $urlRouterProvider) {
 	
 	.state('app.places', {
 		url: "/places",
+        cache: false,
 		views: {
 			'menuContent': {
 				templateUrl: "templates/places.html",
@@ -52,6 +53,7 @@ hopulous.config(function($stateProvider, $urlRouterProvider) {
 
     .state('app.places.list', {
         url: '/list',
+        cache: false,
         templateUrl: "templates/places.list.html",
         controller: 'PlacesListCtrl',
         resolve: {
@@ -63,8 +65,30 @@ hopulous.config(function($stateProvider, $urlRouterProvider) {
 
     .state('app.places.loading', {
         url: '/loading',
+        cache: false,
         templateUrl: "templates/loading.html",
-        controller: 'PlacesLoadCtrl'
+        controller: 'PlacesLoadCtrl',
+        resolve: {
+            errorOrFoursquare: function(networkService) {
+                if (!networkService.isNetworkEnabled()) {
+                    return 'app.places.networkError';
+                } else {
+                    return 'app.places.list';
+                }  
+            }
+        }
+    })
+
+    .state('app.places.locationError', {
+        url: '/error',
+        templateUrl: "templates/locationError.html",
+        controller: 'errorCtrl'
+    })
+
+    .state('app.places.networkError', {
+        url: '/error',
+        templateUrl: "templates/networkError.html",
+        controller: 'errorCtrl'
     })
 
     .state('app.beer-profile', {

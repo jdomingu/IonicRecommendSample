@@ -12,16 +12,21 @@ hopulous.controller('BeerProfileCtrl', function($scope, $stateParams, $http) {
     });
 });
 
+hopulous.controller('ErrorCtrl', function($scope) {
+});
+
 // By default, child views are not initialized when you open the parent view.
 // Show the loading view while the app gets location data.
 hopulous.controller('PlacesCtrl', function($scope, $http, $state) {
     $state.go('app.places.loading');
 });
 
-// When the loading view is displayed, start transitioning to the places list.
-// The places list view will not be displayed until the locationService finishes.
-hopulous.controller('PlacesLoadCtrl', function($scope, $state) {
-    $state.go('app.places.list');
+// If there is no network connection display an error. Otherwise, start 
+// transitioning to the places list.The places list view will not be 
+// displayed until the locationService finishes.
+hopulous.controller('PlacesLoadCtrl', function($scope, $state, errorOrFoursquare) {
+    $scope.errorOrFoursquare = errorOrFoursquare;
+    $state.go(errorOrFoursquare);
 });
 
 hopulous.controller('PlacesListCtrl', function($scope, $http, currentLocation) {
