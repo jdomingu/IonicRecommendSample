@@ -1,6 +1,6 @@
 var services = angular.module('services', []);
 
-services.factory('locationService', function($q, $state) {
+services.factory('locationService', function($http, $q, $state) {
     return {
         isLocationEnabled: function () {
             if (!navigator.geolocation) {
@@ -29,6 +29,26 @@ services.factory('locationService', function($q, $state) {
                 
                 return deferred.promise;
             }
+        },
+        getFourSqUrl: function (currentLocation, query) {
+            // Optimize results depending on whether or not there is a query.
+            var queryOpts;
+            if (query === '') {
+                // Return nearby food places and night spots sorted by distance.
+                queryOpts = 'search?categoryId=4d4b7105d754a06374d81259,4d4b7105d754a06376d81259&radius=1000&';
+            } else {
+                // Search for venues city-wide that match the query as closely as possible.
+                queryOpts = 'search?intent=browse&radius=5000&';
+            }
+            var fourSqUrl = 'https://api.foursquare.com/v2/venues/';
+                fourSqUrl += queryOpts;
+                fourSqUrl += 'client_id=RHHNFOL1ALHF14IYL4DR2FCWGLMC3ETVGKWWPPUI3ZKZVGG3&';
+                fourSqUrl += 'client_secret=UH2M5F1HMULUIFLQPO1S2TWSQLJCUQXVAU1O2HPMLVSTCF3R&v=20150216&';
+                fourSqUrl += 'll=' + currentLocation.latlon;
+                fourSqUrl += '&limit=20&';
+                fourSqUrl += 'query=' + query;
+
+            return fourSqUrl;
         }
     };
 });
