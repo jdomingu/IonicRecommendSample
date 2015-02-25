@@ -41,7 +41,7 @@ hopulous.config(function($stateProvider, $urlRouterProvider) {
 	
 	.state('app.places', {
 		url: "/places",
-        cache: false,
+        cache: false, // Ionic caching discards foursquare results, so disable it.
 		views: {
 			'menuContent': {
 				templateUrl: "templates/places.html",
@@ -101,6 +101,6 @@ hopulous.config(function($stateProvider, $urlRouterProvider) {
 		}
     });
 
-// if none of the above states are matched, use this as the fallback
+// If none of the above states are matched, use this as the fallback.
 $urlRouterProvider.otherwise('/app/recommended');
 });
