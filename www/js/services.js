@@ -5,7 +5,6 @@ services.factory('locationService', function($q) {
     return {
         isLocationEnabled: function () {
             if (!navigator.geolocation) {
-                console.log('Location services are not available.');
                 return false;
             } else {
                 return true;
@@ -14,7 +13,7 @@ services.factory('locationService', function($q) {
         getLocation: function () {
 
             if (!this.isLocationEnabled()) {
-                console.log('Location services are off.');
+                console.log('navigator.geolocation returned false');
                 return;
             } else {
                 var deferred = $q.defer();
@@ -23,12 +22,14 @@ services.factory('locationService', function($q) {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     deferred.resolve({latlon: position.coords.latitude + ', ' + position.coords.longitude});
                 }, function (error) {
-                    console.log('Error: ' + error);
+                    console.log('Error ' + error.code + ': ' + error.message);
+                    alert('Could not get your location. Ensure that location services are turned on.');
                     deferred.reject(error);
-                });
+                }, geoOptions);
                 
                 return deferred.promise;
             }
         }
     };
 });
+

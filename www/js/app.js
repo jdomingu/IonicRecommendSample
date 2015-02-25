@@ -44,15 +44,28 @@ hopulous.config(function($stateProvider, $urlRouterProvider) {
 		views: {
 			'menuContent': {
 				templateUrl: "templates/places.html",
-				controller: 'PlacesCtrl',
-            },
-        }, 
+				controller: 'PlacesCtrl'
+            } 
+        } 
+        
+	})
+
+    .state('app.places.list', {
+        url: '/list',
+        templateUrl: "templates/places.list.html",
+        controller: 'PlacesListCtrl',
         resolve: {
             currentLocation: function(locationService) {
                 return locationService.getLocation();
             }
         }
-	})
+    })
+
+    .state('app.places.loading', {
+        url: '/loading',
+        templateUrl: "templates/loading.html",
+        controller: 'PlacesLoadCtrl'
+    })
 
     .state('app.beer-profile', {
 		url: "/recommended/:beerId",

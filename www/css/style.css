@@ -1,1 +1,19 @@
-/* Empty. Add your own CSS if you like */
+/* Custom Styles */
+
+.center-block {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icon-large {
+    font-size: 48px;
+}
+
+.hiddenSubmit {
+    position: absolute; 
+    left: -9999px,
+    width: 0px;
+    height: 0px;
+}
