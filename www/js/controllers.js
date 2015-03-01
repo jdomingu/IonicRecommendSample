@@ -39,7 +39,13 @@ hopulous.controller('PlacesListCtrl', function($scope, $http, currentLocation, l
         var fourSqUrl = locationService.getFourSqUrl($scope.currentLocation, query);
         $http.get(fourSqUrl).success(function(data) {
             $scope.venues = data.response.venues;
+
+            // Check if there are no results
+            if ($scope.venues.length === 0) {
+                $scope.message = 'No Results';
+            }
         });
+
     };
     
     // On first load, pass an empty query to Foursquare.
