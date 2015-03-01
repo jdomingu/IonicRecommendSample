@@ -22,8 +22,8 @@ services.factory('locationService', function($http, $q, $state) {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     deferred.resolve({latlon: position.coords.latitude + ', ' + position.coords.longitude});
                 }, function (error) {
-                    // If this returns an error, display the locationError view.
-                    $state.go('app.places.locationError');
+                    // If this returns an error, display the locationerror view.
+                    $state.go('app.locationerror');
                     deferred.reject(error);
                 }, geoOptions);
                 

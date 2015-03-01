@@ -1,5 +1,14 @@
-<div class='center-block padding'>
-    <i class='icon ion-alert-circled icon-large balanced'></i>
-    <br>
-    <p>Could not get your location.</p>
-</div>
+<ion-view hide-back-button='true'>
+    <ion-nav-title>
+    </ion-nav-title>
+    <ion-content>
+        <div class='center-block padding'>
+            <i class='icon ion-alert-circled icon-large balanced'></i>
+            <br>
+            <p>Could not get your location.</p>
+            <button class='button button-balanced' ng-click='tryAgain();'>
+                Try again
+            </button>            
+        </div>
+	</ion-content>
+</ion-view>

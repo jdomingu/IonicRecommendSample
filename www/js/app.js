@@ -14,12 +14,6 @@ hopulous.run(function($ionicPlatform, $rootScope) {
         
         console.log('Device ready');
 
-        // Keep track of the current and previous state.
-        $rootScope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
-            $rootScope.currentState = to;
-            $rootScope.previousState = from;
-        });
-
         // When the device is ready, prepare the camera.
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
@@ -46,6 +40,16 @@ hopulous.config(function($stateProvider, $urlRouterProvider) {
 		}
 	})
 	
+    .state('app.beer-profile', {
+		url: "/recommended/:beerId",
+		views: {
+		  'menuContent': {
+			templateUrl: "templates/beer-profile.html",
+			controller: 'BeerProfileCtrl'
+		  }
+		}
+    })
+
 	.state('app.places', {
 		url: "/places",
         cache: false, // Ionic caching discards foursquare results, so disable it.
@@ -74,38 +78,27 @@ hopulous.config(function($stateProvider, $urlRouterProvider) {
         url: '/loading',
         cache: false,
         templateUrl: "templates/loading.html",
-        controller: 'PlacesLoadCtrl',
-        resolve: {
-            errorOrFoursquare: function(networkService) {
-                if (!networkService.isNetworkEnabled()) {
-                    return 'app.places.networkError';
-                } else {
-                    return 'app.places.list';
-                }  
-            }
+        controller: 'PlacesLoadCtrl'
+    })
+
+    .state('app.locationerror', {
+        url: '/locationerror',
+        views: {
+			'menuContent': {
+                templateUrl: "templates/locationError.html",
+                controller: 'ErrorCtrl'
+            } 
         }
     })
 
-    .state('app.places.locationError', {
-        url: '/error',
-        templateUrl: "templates/locationError.html",
-        controller: 'errorCtrl'
-    })
-
-    .state('app.places.networkError', {
-        url: '/error',
-        templateUrl: "templates/networkError.html",
-        controller: 'errorCtrl'
-    })
-
-    .state('app.beer-profile', {
-		url: "/recommended/:beerId",
-		views: {
-		  'menuContent': {
-			templateUrl: "templates/beer-profile.html",
-			controller: 'BeerProfileCtrl'
-		  }
-		}
+    .state('app.networkerror', {
+        url: '/networkerror',
+        views: {
+			'menuContent': {
+                templateUrl: "templates/networkError.html",
+                controller: 'ErrorCtrl'
+            } 
+        }
     });
 
 // If none of the above states are matched, use this as the fallback.
