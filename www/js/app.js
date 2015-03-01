@@ -1,6 +1,6 @@
 var hopulous = angular.module('hopulous', ['ionic', 'controllers', 'services']);
 
-hopulous.run(function($ionicPlatform) {
+hopulous.run(function($ionicPlatform, $rootScope) {
     $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -12,10 +12,17 @@ hopulous.run(function($ionicPlatform) {
             StatusBar.styleDefault();
         }*/
         
-        //When the device is ready, prepare the camera.
+        console.log('Device ready');
+
+        // Keep track of the current and previous state.
+        $rootScope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
+            $rootScope.currentState = to;
+            $rootScope.previousState = from;
+        });
+
+        // When the device is ready, prepare the camera.
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
-
         
     });
 });
