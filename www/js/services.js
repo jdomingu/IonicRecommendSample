@@ -1,6 +1,6 @@
 var services = angular.module('services', []);
 
-services.factory('locationService', function($http, $q, $state) {
+services.factory('locationService', function($q, $state) {
     return {
         isLocationEnabled: function () {
             if (!navigator.geolocation) {
@@ -57,7 +57,7 @@ services.factory('networkService', function () {
     return {
         isNetworkEnabled: function () {
             if (navigator.network.connection.type == Connection.NONE){
-                console.log("Could not access the network.");
+                console.log('Could not access the network.');
                 return false;
             } else {
                 return true;
@@ -65,3 +65,24 @@ services.factory('networkService', function () {
         }
     };
 });
+
+services.factory('beerService', function ($http, $q) {
+    return {
+        beers: [],
+        getBeerList: function () {
+            var deferred = $q.defer();
+
+            $http.get('tmp/hop_response.json').success(function(data) {
+                this.beers = data.beers;
+                deferred.resolve(this.beers);
+            });
+
+            return deferred.promise;
+        },
+        getBeerById: function (beerId) {
+
+        }
+    };
+});
+
+

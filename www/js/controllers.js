@@ -1,9 +1,11 @@
 var controllers = angular.module('controllers', ['services']);
 
-hopulous.controller('RecBeerCtrl', function($scope, $http) {
-    $http.get('tmp/beer_history.json').success(function(data) {
-        $scope.recbeers = data;
-    });
+hopulous.controller('HomeCtrl', function($scope) {
+});
+
+hopulous.controller('RecBeerCtrl', function($scope, $http, beerList) {
+    $scope.beers = beerList;
+
 });
 
 hopulous.controller('BeerProfileCtrl', function($scope, $stateParams, $http) {

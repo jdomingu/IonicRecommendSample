@@ -25,37 +25,52 @@ hopulous.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
 
     .state('app', {
-        url: "/app",
+        url: '/app',
         abstract: true,
-        templateUrl: "templates/menu.html",
+        templateUrl: 'templates/menu.html',
     })
 
-	.state('app.recommended', {
-		url: "/recommended",
+	.state('app.home', {
+		url: '/home',
 		views: {
 			'menuContent': {
-				templateUrl: "templates/recommended.html",
-				controller: 'RecBeerCtrl'
+				templateUrl: 'templates/home.html',
+				controller: 'HomeCtrl'
+			}
+		}
+	})
+
+	.state('app.recommended', {
+		url: '/recommended',
+		views: {
+			'menuContent': {
+				templateUrl: 'templates/recommended.html',
+				controller: 'RecBeerCtrl',
+                resolve: {
+                    beerList: function(beerService) {
+                        return beerService.getBeerList();
+                    }
+                }
 			}
 		}
 	})
 	
     .state('app.beer-profile', {
-		url: "/recommended/:beerId",
+		url: '/recommended/:beerId',
 		views: {
 		  'menuContent': {
-			templateUrl: "templates/beer-profile.html",
+			templateUrl: 'templates/beer-profile.html',
 			controller: 'BeerProfileCtrl'
 		  }
 		}
     })
 
 	.state('app.places', {
-		url: "/places",
+		url: '/places',
         cache: false, // Ionic caching discards foursquare results, so disable it.
 		views: {
 			'menuContent': {
-				templateUrl: "templates/places.html",
+				templateUrl: 'templates/places.html',
 				controller: 'PlacesCtrl'
             } 
         } 
@@ -65,7 +80,7 @@ hopulous.config(function($stateProvider, $urlRouterProvider) {
     .state('app.places.list', {
         url: '/list',
         cache: false,
-        templateUrl: "templates/places.list.html",
+        templateUrl: 'templates/places.list.html',
         controller: 'PlacesListCtrl',
         resolve: {
             currentLocation: function(locationService) {
@@ -77,7 +92,7 @@ hopulous.config(function($stateProvider, $urlRouterProvider) {
     .state('app.places.loading', {
         url: '/loading',
         cache: false,
-        templateUrl: "templates/loading.html",
+        templateUrl: 'templates/loading.html',
         controller: 'PlacesLoadCtrl'
     })
 
@@ -85,7 +100,7 @@ hopulous.config(function($stateProvider, $urlRouterProvider) {
         url: '/locationerror',
         views: {
 			'menuContent': {
-                templateUrl: "templates/locationError.html",
+                templateUrl: 'templates/locationError.html',
                 controller: 'ErrorCtrl'
             } 
         }
@@ -95,12 +110,12 @@ hopulous.config(function($stateProvider, $urlRouterProvider) {
         url: '/networkerror',
         views: {
 			'menuContent': {
-                templateUrl: "templates/networkError.html",
+                templateUrl: 'templates/networkError.html',
                 controller: 'ErrorCtrl'
             } 
         }
     });
 
 // If none of the above states are matched, use this as the fallback.
-$urlRouterProvider.otherwise('/app/recommended');
+$urlRouterProvider.otherwise('/app/home');
 });

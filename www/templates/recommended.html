@@ -10,10 +10,12 @@
 	  </label>
 	</div>
     <ion-list>
-      <ion-item href="#/app/recommended/{{recbeer.beer_id}}" ng-repeat="recbeer in recbeers | filter:beerSearch">
-           {{recbeer.beer_name}}
+      <ion-item href="#/app/recommended/{{beer.beer_id}}" ng-repeat="beer in beers | filter:beerSearch">
+           {{beer.beer_name}}
+           <!-- To Do: Stub for possible swipe feature
           <ion-option-button class="button-clear button-positive">Check in</ion-option-button>
           <ion-option-button class="button-clear button-positive">Cancel</ion-option-button>
+          -->
       </ion-item>
     </ion-list>
   </ion-content>
