@@ -4,37 +4,37 @@
     </ion-nav-title>
     <ion-content>
 
-		<div class="card">
-			<div class="item">
+		<div class='card'>
+			<div class='item'>
 				<h2>{{beerProfile.beer_name}}</h2>
 				<h4>{{beerProfile.brewery}}</h4>
 				<h4>{{beerProfile.beer_style}}</h4>
 			</div>
-			<div class="item">
+			<div class='item'>
 				
 				<div>
 				    <p>Add Photo<p>
-						<button class="button button-block" onClick="capturePhoto();">
+						<button class='button button-block' onClick='capturePhoto();'>
 							From Camera
 						</button>
-						<button class="button button-block" onClick="getPhoto(pictureSource.PHOTOLIBRARY);">
+						<button class='button button-block' onClick='getPhoto(pictureSource.PHOTOLIBRARY);'>
 							From Gallery
 						</button>
 
-                    <div style="display:none" id="photoThumb">
-                        <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
-                        <a href="#" onClick="document.getElementById('photoThumb').style.display = 'none'">Remove</a>
+                    <div style='display:none' id='photoThumb'>
+                        <img style='display:none;width:60px;height:60px;' id='smallImage' src='' />
+                        <a href='#' onClick='document.getElementById("photoThumb").style.display = "none"'>Remove</a>
                     </div>
                     <!-- See how it looks with a collapsible instead of a camera button
-                    <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-notext ui-icon-camera"
-                        style="width:45px; height:45px;" onClick="capturePhoto();">Camera</button>
+                    <button class='ui-btn ui-shadow ui-corner-all ui-btn-icon-notext ui-icon-camera'
+                        style='width:45px; height:45px;' onClick='capturePhoto();'>Camera</button>
                     -->
                 </div>
-				<div class="range">
-					<input type="range" name="volume">
+				<div class='range'>
+					<input type='range' name='volume'>
 				</div>
 			</div>
-			<button class="button button-block button-balanced">
+			<button class='button button-block button-balanced'>
 				Check In
 			</button>
 		</div>

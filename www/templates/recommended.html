@@ -3,18 +3,18 @@
         Recommended
     </ion-nav-title>
     <ion-content>
-	<div class="list list-inset">
-	  <label class="item item-input">
-		<i class="icon ion-search placeholder-icon"></i>
-		<input type="text" placeholder="Search" ng-model="beerSearch">
+	<div class='list list-inset'>
+	  <label class='item item-input'>
+		<i class='icon ion-search placeholder-icon'></i>
+		<input type='text' placeholder='Search' ng-model='beerSearch'>
 	  </label>
 	</div>
     <ion-list>
-      <ion-item href="#/app/recommended/{{beer.beer_id}}" ng-repeat="beer in beers | filter:beerSearch">
+      <ion-item href='#/app/recommended/{{beer.beer_id}}' ng-repeat='beer in beers | filter:beerSearch'>
            {{beer.beer_name}}
            <!-- To Do: Stub for possible swipe feature
-          <ion-option-button class="button-clear button-positive">Check in</ion-option-button>
-          <ion-option-button class="button-clear button-positive">Cancel</ion-option-button>
+          <ion-option-button class='button-clear button-positive'>Check in</ion-option-button>
+          <ion-option-button class='button-clear button-positive'>Cancel</ion-option-button>
           -->
       </ion-item>
     </ion-list>
