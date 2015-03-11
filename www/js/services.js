@@ -68,7 +68,7 @@ services.factory('networkService', function () {
 
 services.factory('beerService', function ($http, $q) {
     return {
-        beers: [],
+        beers: [{"beer_id":18,"beer_name":"Alchemy Ale","brewery":"Widmer Brothers Brewing","beer_style":"American Pale Ale","beer_rating":3.5,"brewery_country":"United States"},{"beer_id":73,"beer_name":"Cavatica Stout","brewery":"Fort George Brewery","beer_style":"American Stout","beer_rating":3.5,"brewery_country":"United States"},{"beer_id":278,"beer_name":"Northwest IPA","brewery":"Stoup Brewing","beer_style":"American IPA","beer_rating":3.0,"brewery_country":"United States"}],
         getBeerList: function () {
             var deferred = $q.defer();
 
@@ -80,7 +80,16 @@ services.factory('beerService', function ($http, $q) {
             return deferred.promise;
         },
         getBeerById: function (beerId) {
+            var deferred = $q.defer();
+            this.beers.forEach(function (beer) {
+                //Improve this so that the loop stops when it finds the beer
+                if (beer.beer_id == beerId) {
+                    deferred.resolve(beer);
+                    return;
+                } 
+            });
 
+            return deferred.promise;
         }
     };
 });

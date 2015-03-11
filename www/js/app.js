@@ -60,7 +60,12 @@ hopulous.config(function($stateProvider, $urlRouterProvider) {
 		views: {
 		  'menuContent': {
 			templateUrl: 'templates/beer-profile.html',
-			controller: 'BeerProfileCtrl'
+			controller: 'BeerProfileCtrl',
+            resolve: {
+                beerProfile: function ($stateParams, beerService) {
+                    return beerService.getBeerById($stateParams.beerId);
+                }
+            }
 		  }
 		}
     })

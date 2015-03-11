@@ -8,10 +8,11 @@ hopulous.controller('RecBeerCtrl', function($scope, $http, beerList) {
 
 });
 
-hopulous.controller('BeerProfileCtrl', function($scope, $stateParams, $http) {
-	$http.get('tmp/' + $stateParams.beerId + '.json').success(function(data) {
-		$scope.beerProfile = data;
-    });
+hopulous.controller('BeerProfileCtrl', function($scope, $stateParams, beerProfile) {
+    $scope.beerProfile = beerProfile;
+	//$http.get('tmp/' + $stateParams.beerId + '.json').success(function(data) {
+	//	$scope.beerProfile = data;
+    //});
 });
 
 hopulous.controller('ErrorCtrl', function($scope, $state, $rootScope, $ionicHistory) {
