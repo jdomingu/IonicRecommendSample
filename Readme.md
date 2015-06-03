@@ -1,5 +1,5 @@
 ## Installation Instructions
-Hopulous uses the node package manager to install dependencies. You can view dependencies in the package.json file. The file also maps terminal commands to npm install, start, and test.
+This is a sample recommendation application using Ionic and Cordova. It uses the node package manager to install dependencies. You can view dependencies in the package.json file. The file also maps terminal commands to npm install, start, and test.
 
 - Install node and npm
 - Run `npm install`

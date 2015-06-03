@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.hopulous368924" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Hopulous</name>
+  <name>IonicRecSample</name>
   <description>
-      A beer recommendation service.
+      A sample recommendation service.
     </description>
-  <author email="jared@hopulo.us" href="hopulo.us">
-      The Hopulous Team
-    </author>
   <content src="index.html"/>
   <access origin="*"/>
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>

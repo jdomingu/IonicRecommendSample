@@ -1,8 +1,8 @@
 {
-  "name": "hopulous",
+  "name": "ionicRecSample",
   "version": "1.0.0",
   "private": true,
-  "description": "Hopulous: An Ionic project",
+  "description": "A sample Ionic recommendation app",
   "dependencies": {
     "cordova": "^4.2.0",
     "ionic": "^1.3.10",

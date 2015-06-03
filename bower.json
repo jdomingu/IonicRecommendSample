@@ -1,5 +1,5 @@
 {
-  "name": "Hopulous",
+  "name": "IonicRecSample",
   "private": "true",
   "dependencies": {
     "ionic": "driftyco/ionic-bower#1.0.0-beta.14"
